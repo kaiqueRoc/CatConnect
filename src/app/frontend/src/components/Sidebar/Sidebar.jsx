@@ -27,7 +27,7 @@ function Sidebar({ definirComponente, componenteAtivo }) {
     delete newGato["_id"];
     try {
       const { data } = await axios.post(
-        "http://localhost:4000/gatos",
+        "https://catconnect.onrender.com/gatos",
         newGato,
         {
           withCredentials: true,
