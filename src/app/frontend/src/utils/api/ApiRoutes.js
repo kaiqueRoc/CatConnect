@@ -1,4 +1,4 @@
-export const host = "http://localhost:4000";
+export const host = "https://catconnect.onrender.com";
 
 export const routes = {
     getAdocoes: `${host}/adocoes`,
