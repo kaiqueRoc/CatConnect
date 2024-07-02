@@ -25,7 +25,7 @@ const Adotantes = () => {
 
   const getAdotantes = async () => {
     try {
-      const { data } = await axios.get("http://localhost:4000/adotantes", {
+      const { data } = await axios.get("https://catconnect.onrender.com/adotantes", {
         withCredentials: true,
       });
       if (!data) {
@@ -49,7 +49,7 @@ const Adotantes = () => {
     delete newAdotante["_id"];
     try {
       const { data } = await axios.post(
-        "http://localhost:4000/adotantes",
+        "https://catconnect.onrender.com/adotantes",
         newAdotante,
         {
           withCredentials: true,
@@ -83,7 +83,7 @@ const Adotantes = () => {
   const handleEditAdotante = async (editedAdotante) => {
     try {
       const { data } = await axios.put(
-        `http://localhost:4000/adotantes/${editedAdotante._id}`,
+        `https://catconnect.onrender.com/adotantes/${editedAdotante._id}`,
         editedAdotante,
         {
           withCredentials: true,
