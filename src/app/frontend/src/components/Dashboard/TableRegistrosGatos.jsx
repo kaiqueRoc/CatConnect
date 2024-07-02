@@ -16,7 +16,7 @@ const TableRegistrosGatos = () => {
     const getGatos = async () => {
         try {
             const { data } = await axios.get(
-                "http://localhost:4000/gatos",
+                "https://catconnect.onrender.com/gatos",
                 {
                     withCredentials: true,
                 }
