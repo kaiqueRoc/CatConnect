@@ -29,7 +29,7 @@ const Usuarios = () => {
   const getUsuarios = async () => {
     try {
       const { data } = await axios.get(
-        "http://localhost:4000/users",
+        "https://catconnect.onrender.com/users",
         {
           withCredentials: true,
         }
@@ -55,7 +55,7 @@ const Usuarios = () => {
     delete newUsuario["_id"];
     try {
       const { data } = await axios.post(
-        "http://localhost:4000/users",
+        "https://catconnect.onrender.com/users",
         newUsuario,
         {
           withCredentials: true,
@@ -88,7 +88,7 @@ const Usuarios = () => {
   const handleEditUsuario = async (editedUsuario) => {
     try {
       const { data } = await axios.put(
-        `http://localhost:4000/users/${editedUsuario._id}`,
+        `https://catconnect.onrender.com/users/${editedUsuario._id}`,
         editedUsuario,
         {
           withCredentials: true,
@@ -119,7 +119,7 @@ const Usuarios = () => {
 
   const handleDeleteUsuario = async (deleteUsuario) => {
     try {
-      const { data } = await axios.delete(`http://localhost:4000/users/${deleteUsuario}`, {
+      const { data } = await axios.delete(`https://catconnect.onrender.com/users/${deleteUsuario}`, {
         withCredentials: true,
       });
       if (!data.deleted) {
