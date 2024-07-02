@@ -49,7 +49,7 @@ const Gatinhos = () => {
     delete newGato["_id"];
     try {
       const { data } = await axios.post(
-        "http://localhost:4000/gatos",
+        "https://catconnect.onrender.com/gatos",
         newGato,
         {
           withCredentials: true,
@@ -83,7 +83,7 @@ const Gatinhos = () => {
   const handleEditGato = async (editedGato) => {
     try {
       const { data } = await axios.put(
-        `http://localhost:4000/gatos/${editedGato._id}`,
+        `https://catconnect.onrender.com/gatos/${editedGato._id}`,
         editedGato,
         {
           withCredentials: true,
