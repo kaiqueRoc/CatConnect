@@ -25,7 +25,7 @@ const Gatinhos = () => {
 
   const getGatinhos = async () => {
     try {
-      const { data } = await axios.get("http://localhost:4000/gatos", {
+      const { data } = await axios.get("https://catconnect.onrender.com/gatos", {
         withCredentials: true,
       });
       if (!data) {
