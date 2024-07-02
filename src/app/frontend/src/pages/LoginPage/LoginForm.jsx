@@ -27,13 +27,14 @@ function LoginForm({ toggleReset }) {
 
     event.preventDefault();
     try {
-      const { data } = await axios.post(
-        "https://catconnect.onrender.com/login",
-        {
-          ...values,
-        },
-        { withCredentials: true }
-      );
+     const { data } = await axios.post(
+    "https://catconnect.onrender.com/login",
+    { ...values },
+    {
+      withCredentials: true,
+      headers:'Content-Type': 'application/json', 
+    }
+  );
       if (data) {
         if(values.email === '' && values.password === '' ){
           toast.error("Por favor! Digite o email e a senha.");
