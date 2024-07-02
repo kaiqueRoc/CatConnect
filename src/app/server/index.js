@@ -17,11 +17,7 @@ require('dotenv').config();
 const app = express();
 
 // Ordem dos middlewares atualizada
-app.use(cors({
-    origin: [process.env.PORT_URI],
-    methods: ["GET", "POST", "PUT", "DELETE"],
-    credentials: true,
-}));
+app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
