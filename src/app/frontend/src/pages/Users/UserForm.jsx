@@ -9,7 +9,7 @@ function UserForm() {
     e.preventDefault();
 
     try {
-      await axios.post("http://localhost:4000/users", {
+      await axios.post("https://catconnect.onrender.com/users", {
         email,
         password,
       });
