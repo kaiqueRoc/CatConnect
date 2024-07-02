@@ -7,7 +7,7 @@ function UserList() {
   useEffect(() => {
       const fetchUsers = async () => {
       try {
-        const response = await axios.get("http://localhost:4000/users");
+        const response = await axios.get("https://catconnect.onrender.com/users");
         setUsers(response.data);
       } catch (error) {
         console.error("Erro ao buscar usuários: ", error);
