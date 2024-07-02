@@ -26,39 +26,45 @@ function LoginForm({ toggleReset }) {
   const handleSubmit = async (event) => {
 
     event.preventDefault();
-    try {
-     const { data } = await axios.post(
+   try {
+  const response = await axios.post(
     "https://catconnect.onrender.com/login",
-    { ...values },
+    values,  // Não é necessário espalhar os valores {...values}
     {
       withCredentials: true,
-      headers:'Content-Type': 'application/json', 
+      headers: {
+        'Content-Type': 'application/json',  // Configuração correta do cabeçalho
+      },
     }
   );
-      if (data) {
-        if(values.email === '' && values.password === '' ){
-          toast.error("Por favor! Digite o email e a senha.");
-          return
-        }
-        if (values.email === '' || values.password === '') {
-          const valor = values.email === '' ? 'o email.' : 'a senha.';
-          toast.error(`Por favor! Digite ${valor}`);
-          return;
-        }
 
+  const { data } = response;
 
-        if (data.errors) {
-          const { email, password } = data.errors;
-          if (email) generateError(email);
-          else if (password) generateError(password);
-        } else {
-          toast.success(`Olá, ${data.nome}! Seja bem vindo(a) de volta.`);
-            navigate("/");
-        }
-      }
-    } catch (ex) {
-      console.log(ex);
+  if (data) {
+    if (values.email === '' && values.password === '') {
+      toast.error("Por favor! Digite o email e a senha.");
+      return;
     }
+
+    if (values.email === '' || values.password === '') {
+      const valor = values.email === '' ? 'o email' : 'a senha';
+      toast.error(`Por favor! Digite ${valor}.`);
+      return;
+    }
+
+    if (data.errors) {
+      const { email, password } = data.errors;
+      if (email) generateError(email);
+      else if (password) generateError(password);
+    } else {
+      toast.success(`Olá, ${data.nome}! Seja bem vindo(a) de volta.`);
+      navigate("/");
+    }
+  }
+} catch (error) {
+  console.error('Erro ao fazer requisição:', error);
+  toast.error('Erro no servidor');
+}
   };
   return (
       <div className="container">
